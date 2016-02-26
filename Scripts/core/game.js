@@ -45,6 +45,7 @@ var step = 0;
 var sun;
 var sunGeometry;
 var sunMaterial;
+var plnt1;
 function init() {
     // Instantiate a new Scene object
     scene = new Scene();
@@ -60,6 +61,11 @@ function init() {
     sun = new Mesh(sunGeometry, sunMaterial);
     scene.add(sun);
     console.log("Added Sun to scene...");
+    // add planet1
+    plnt1 = new gameObject(new SphereGeometry(20, 100, 100), new LambertMaterial({ color: 0x66FFCC }), 100, 100, 100);
+    plnt1.name = "First planet";
+    scene.add(plnt1);
+    console.log("Added P1 to scene...");
     // add controls
     gui = new GUI();
     control = new Control();
