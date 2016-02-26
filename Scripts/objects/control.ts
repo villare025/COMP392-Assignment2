@@ -47,5 +47,15 @@ module objects {
             camera.fov = 45;
             camera.updateProjectionMatrix();
         }
+        //Switch camera to view system
+        public viewFarther(): void {
+            sun.add(camera);
+            camera.position.x = -2100;
+            camera.position.y = 2000;
+            camera.position.z = 2100;
+            camera.lookAt(new Vector3(0, 0, 0));
+            camera.fov = 45;
+            camera.updateProjectionMatrix();
+        }
     }
 }

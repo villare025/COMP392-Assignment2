@@ -48,6 +48,16 @@ var objects;
             camera.fov = 45;
             camera.updateProjectionMatrix();
         };
+        //Switch camera to view system
+        Control.prototype.viewFarther = function () {
+            sun.add(camera);
+            camera.position.x = -2100;
+            camera.position.y = 2000;
+            camera.position.z = 2100;
+            camera.lookAt(new Vector3(0, 0, 0));
+            camera.fov = 45;
+            camera.updateProjectionMatrix();
+        };
         return Control;
     }());
     objects.Control = Control;

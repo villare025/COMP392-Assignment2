@@ -196,6 +196,7 @@ function addControl(controlObject: Control): void {
     gui.add(controlObject, 'viewPlanet4');
     gui.add(controlObject, 'viewPlanet5');
     gui.add(controlObject, 'viewSolarSystem');
+    gui.add(controlObject, 'viewFarther');
 }
 
 function addStatsObject() {
