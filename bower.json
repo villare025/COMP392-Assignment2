@@ -1,0 +1,25 @@
+{
+  "name": "comp392-assignment2",
+  "authors": [
+    "Elaine Mae Villarino <empvillare@yahoo.com>"
+  ],
+  "description": "COMP392-Assignment2:Solar System",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "https://github.com/villare025/COMP392-Assignment2",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "Scripts/lib"
+  ],
+  "dependencies": {
+    "three.js": "threejs#*",
+    "dat-gui": "~0.5.1",
+    "stats.js": "*",
+    "threex.colliders": "*"
+  }
+}
