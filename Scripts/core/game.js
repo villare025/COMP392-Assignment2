@@ -75,28 +75,18 @@ function init() {
     // add planet1
     plnt1 = new gameObject(new SphereGeometry(20, 100, 100), new LambertMaterial({ color: 0x66FFCC }), 100, 100, 100);
     plnt1.name = "First planet";
-    scene.add(plnt1);
-    console.log("Added P1 to scene...");
     // add planet2    
     plnt2 = new gameObject(new SphereGeometry(45, 100, 100), new LambertMaterial({ color: 0xCC33CC }), 200, 200, 200);
     plnt2.name = "Second planet";
-    scene.add(plnt2);
-    console.log("Added P2 to scene...");
     // add planet3    
     plnt3 = new gameObject(new SphereGeometry(32, 100, 100), new LambertMaterial({ color: 0xFFCC33 }), 300, 300, 300);
     plnt3.name = "Third planet";
-    scene.add(plnt3);
-    console.log("Added P3 to scene...");
     // add planet4    
     plnt4 = new gameObject(new SphereGeometry(60, 100, 100), new LambertMaterial({ color: 0xFF99CC }), 400, 400, 400);
     plnt4.name = "Fourth planet";
-    scene.add(plnt4);
-    console.log("Added P4 to scene...");
     // add planet5    
     plnt5 = new gameObject(new SphereGeometry(75, 100, 100), new LambertMaterial({ color: 0x99CC33 }), 500, 500, 500);
     plnt5.name = "Fifth planet";
-    scene.add(plnt5);
-    console.log("Added P5 to scene...");
     //Create moon
     moon = new gameObject(new SphereGeometry(8, 100, 100), new LambertMaterial({ color: 0x555E43 }), 50, 25, 25);
     moon.name = "moon";
@@ -106,6 +96,17 @@ function init() {
     sun.add(plnt3Orbit);
     sun.add(plnt4Orbit);
     sun.add(plnt5Orbit);
+    //Add planets to their own orbits
+    plnt1Orbit.add(plnt1);
+    console.log("Added P1 to P1Orbit...");
+    plnt2Orbit.add(plnt2);
+    console.log("Added P2 to P2Orbit...");
+    plnt3Orbit.add(plnt3);
+    console.log("Added P3 to P3Orbit...");
+    plnt4Orbit.add(plnt4);
+    console.log("Added P4 to P4Orbit...");
+    plnt5Orbit.add(plnt5);
+    console.log("Added P5 to P5Orbit...");
     // add controls
     gui = new GUI();
     control = new Control();
