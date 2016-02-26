@@ -111,6 +111,10 @@ function init() {
     plnt2.add(moonOrbit);
     moonOrbit.add(moon);
     console.log("Added MoonOrbit to Planet2 and Moon to MoonOrbit...");
+    // Add an AmbientLight to the scene
+    ambientLight = new AmbientLight(0xffffff);
+    scene.add(ambientLight);
+    console.log("Added an Ambient Light to Scene");
     // add controls
     gui = new GUI();
     control = new Control();
