@@ -42,6 +42,7 @@ var gui;
 var stats;
 var step = 0;
 // Solar System Game Objects
+var sunLight;
 var sun;
 var sunGeometry;
 var sunMaterial;
@@ -115,6 +116,15 @@ function init() {
     ambientLight = new AmbientLight(0xffffff);
     scene.add(ambientLight);
     console.log("Added an Ambient Light to Scene");
+    //Add a PointLight to the scene as sun's light)
+    sunLight = new PointLight(0xffffff);
+    sunLight.position.set(0, 0, 0);
+    sunLight.castShadow = true;
+    sunLight.intensity = 1;
+    sunLight.shadowMapHeight = 2048;
+    sunLight.shadowMapWidth = 2048;
+    scene.add(sunLight);
+    console.log("Added a sunLight to the scene");
     // add controls
     gui = new GUI();
     control = new Control();
