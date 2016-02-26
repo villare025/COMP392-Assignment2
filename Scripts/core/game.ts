@@ -51,6 +51,7 @@ var sun: Mesh;
 var sunGeometry: SphereGeometry;
 var sunMaterial: LambertMaterial;
 var plnt1: Mesh;
+var plnt2: Mesh;
 
 function init() {
     // Instantiate a new Scene object
@@ -83,6 +84,17 @@ function init() {
     
     scene.add(plnt1);
     console.log("Added P1 to scene...");
+    
+    // add planet2    
+    plnt2 = new gameObject(
+        new SphereGeometry(45, 100, 100),
+        new LambertMaterial({color: 0xCC33CC}),
+         200, 200, 200);
+    plnt2.name = "Second planet";
+    
+    scene.add(plnt2);
+    console.log("Added P2 to scene...");
+    
     
     // add controls
     gui = new GUI();
