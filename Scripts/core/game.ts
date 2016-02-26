@@ -207,7 +207,12 @@ function addStatsObject() {
 function gameLoop(): void {
     stats.update();
     // render using requestAnimationFrame
-
+    moonOrbit.rotation.y += 0.05;
+    plnt1Orbit.rotation.y += 0.03;
+    plnt2Orbit.rotation.y += 0.025;
+    plnt3Orbit.rotation.y += 0.05;
+    plnt4Orbit.rotation.y += 0.015;
+    plnt5Orbit.rotation.y += 0.02;    
     requestAnimationFrame(gameLoop);
 	
     // render the scene
