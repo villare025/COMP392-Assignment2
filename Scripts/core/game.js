@@ -45,6 +45,7 @@ var step = 0;
 var sun;
 var sunGeometry;
 var sunMaterial;
+var moon;
 var plnt1;
 var plnt2;
 var plnt3;
@@ -90,6 +91,9 @@ function init() {
     plnt5.name = "Fifth planet";
     scene.add(plnt5);
     console.log("Added P5 to scene...");
+    //Create moon
+    moon = new gameObject(new SphereGeometry(8, 100, 100), new LambertMaterial({ color: 0x555E43 }), 50, 25, 25);
+    moon.name = "moon";
     // add controls
     gui = new GUI();
     control = new Control();
