@@ -7,33 +7,33 @@ module objects {
         // CONSTRUCTOR ++++++++++++++++++++++++++++++++++++++++
 
         //PUBLIC METHODS +++++++++++++++++++++++++++++++++++++++
-        //Switch camera to view planet1
-        public viewPlanet1(): void {
-            plnt1.add(camera);
+        //Switch camera to view planet1 - Styx
+        public viewStyx(): void {
+            styx.add(camera);
             camera.fov = 75 * 0.1;
             camera.updateProjectionMatrix();
         }
-        //Switch camera to view planet2
-        public viewPlanet2(): void {
-            plnt2.add(camera);
+        //Switch camera to view planet2 - Nike
+        public viewNike(): void {
+            nike.add(camera);
             camera.fov = 75 * 0.1;
             camera.updateProjectionMatrix();
         }
-        //Switch camera to view planet3
-        public viewPlanet3(): void {
-            plnt3.add(camera);
+        //Switch camera to view planet3 - Kratos
+        public viewKratos(): void {
+            kratos.add(camera);
             camera.fov = 75 * 0.1;
             camera.updateProjectionMatrix();
         }
-        //Switch camera to view planet4
-        public viewPlanet4(): void {
-            plnt4.add(camera);
+        //Switch camera to view planet4 - Zelos
+        public viewZelos(): void {
+            zelos.add(camera);
             camera.fov = 75 * 0.1;
             camera.updateProjectionMatrix();
         }
-        //Switch camera to view planet5
-        public viewPlanet5(): void {
-            plnt5.add(camera);
+        //Switch camera to view planet5 - Bia
+        public viewBia(): void {
+            bia.add(camera);
             camera.fov = 75 * 0.1;
             camera.updateProjectionMatrix();
         }

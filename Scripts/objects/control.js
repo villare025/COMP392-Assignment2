@@ -8,33 +8,33 @@ var objects;
         //PUBLIC INSTANCE VARIABLES +++++++++++++++++++++++++++
         // CONSTRUCTOR ++++++++++++++++++++++++++++++++++++++++
         //PUBLIC METHODS +++++++++++++++++++++++++++++++++++++++
-        //Switch camera to view planet1
-        Control.prototype.viewPlanet1 = function () {
-            plnt1.add(camera);
+        //Switch camera to view planet1 - Styx
+        Control.prototype.viewStyx = function () {
+            styx.add(camera);
             camera.fov = 75 * 0.1;
             camera.updateProjectionMatrix();
         };
-        //Switch camera to view planet2
-        Control.prototype.viewPlanet2 = function () {
-            plnt2.add(camera);
+        //Switch camera to view planet2 - Nike
+        Control.prototype.viewNike = function () {
+            nike.add(camera);
             camera.fov = 75 * 0.1;
             camera.updateProjectionMatrix();
         };
-        //Switch camera to view planet3
-        Control.prototype.viewPlanet3 = function () {
-            plnt3.add(camera);
+        //Switch camera to view planet3 - Kratos
+        Control.prototype.viewKratos = function () {
+            kratos.add(camera);
             camera.fov = 75 * 0.1;
             camera.updateProjectionMatrix();
         };
-        //Switch camera to view planet4
-        Control.prototype.viewPlanet4 = function () {
-            plnt4.add(camera);
+        //Switch camera to view planet4 - Zelos
+        Control.prototype.viewZelos = function () {
+            zelos.add(camera);
             camera.fov = 75 * 0.1;
             camera.updateProjectionMatrix();
         };
-        //Switch camera to view planet5
-        Control.prototype.viewPlanet5 = function () {
-            plnt5.add(camera);
+        //Switch camera to view planet5 - Bia
+        Control.prototype.viewBia = function () {
+            bia.add(camera);
             camera.fov = 75 * 0.1;
             camera.updateProjectionMatrix();
         };

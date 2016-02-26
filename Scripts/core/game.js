@@ -47,17 +47,17 @@ var sun;
 var sunGeometry;
 var sunMaterial;
 var moon;
-var plnt1;
-var plnt2;
-var plnt3;
-var plnt4;
-var plnt5;
+var styx;
+var nike;
+var kratos;
+var zelos;
+var bia;
 var moonOrbit = new Object3D();
-var plnt1Orbit = new Object3D();
-var plnt2Orbit = new Object3D();
-var plnt3Orbit = new Object3D();
-var plnt4Orbit = new Object3D();
-var plnt5Orbit = new Object3D();
+var styxOrbit = new Object3D();
+var nikeOrbit = new Object3D();
+var kratosOrbit = new Object3D();
+var zelosOrbit = new Object3D();
+var biaOrbit = new Object3D();
 function init() {
     // Instantiate a new Scene object
     scene = new Scene();
@@ -74,44 +74,44 @@ function init() {
     scene.add(sun);
     console.log("Added Sun to scene...");
     // add planet1
-    plnt1 = new gameObject(new SphereGeometry(20, 100, 100), new LambertMaterial({ color: 0x66FFCC }), 100, 100, 200);
-    plnt1.name = "First planet";
+    styx = new gameObject(new SphereGeometry(20, 100, 100), new LambertMaterial({ color: 0x66FFCC }), 100, 100, 200);
+    styx.name = "Styx";
     // add planet2    
-    plnt2 = new gameObject(new SphereGeometry(45, 100, 100), new LambertMaterial({ color: 0xCC33CC }), 200, 100, 200);
-    plnt2.name = "Second planet";
+    nike = new gameObject(new SphereGeometry(45, 100, 100), new LambertMaterial({ color: 0xCC33CC }), 200, 100, 200);
+    nike.name = "Nike";
     // add planet3    
-    plnt3 = new gameObject(new SphereGeometry(32, 100, 100), new LambertMaterial({ color: 0xFFCC33 }), 300, 100, 200);
-    plnt3.name = "Third planet";
+    kratos = new gameObject(new SphereGeometry(32, 100, 100), new LambertMaterial({ color: 0xFFCC33 }), 300, 100, 200);
+    kratos.name = "Kratos";
     // add planet4    
-    plnt4 = new gameObject(new SphereGeometry(60, 100, 100), new LambertMaterial({ color: 0xFF99CC }), 400, 100, 200);
-    plnt4.name = "Fourth planet";
+    zelos = new gameObject(new SphereGeometry(60, 100, 100), new LambertMaterial({ color: 0xFF99CC }), 400, 100, 200);
+    zelos.name = "Zelos";
     // add planet5    
-    plnt5 = new gameObject(new SphereGeometry(75, 100, 100), new LambertMaterial({ color: 0x99CC33 }), 500, 100, 200);
-    plnt5.name = "Fifth planet";
+    bia = new gameObject(new SphereGeometry(75, 100, 100), new LambertMaterial({ color: 0x99CC33 }), 500, 100, 200);
+    bia.name = "Bia";
     //Create moon
     moon = new gameObject(new SphereGeometry(8, 100, 100), new LambertMaterial({ color: 0x555E43 }), 50, 25, 25);
     moon.name = "moon";
     // Add orbits to sun 
-    sun.add(plnt1Orbit);
-    sun.add(plnt2Orbit);
-    sun.add(plnt3Orbit);
-    sun.add(plnt4Orbit);
-    sun.add(plnt5Orbit);
+    sun.add(styxOrbit);
+    sun.add(nikeOrbit);
+    sun.add(kratosOrbit);
+    sun.add(zelosOrbit);
+    sun.add(biaOrbit);
     //Add planets to their own orbits
-    plnt1Orbit.add(plnt1);
-    console.log("Added P1 to P1Orbit...");
-    plnt2Orbit.add(plnt2);
-    console.log("Added P2 to P2Orbit...");
-    plnt3Orbit.add(plnt3);
-    console.log("Added P3 to P3Orbit...");
-    plnt4Orbit.add(plnt4);
-    console.log("Added P4 to P4Orbit...");
-    plnt5Orbit.add(plnt5);
-    console.log("Added P5 to P5Orbit...");
+    styxOrbit.add(styx);
+    console.log("Added Planet1 - Styx to Styx Orbit...");
+    nikeOrbit.add(nike);
+    console.log("Added Planet2 - Nike to Nike Orbit...");
+    kratos.add(kratos);
+    console.log("Added Planet3 - Kratos to Kratos Orbit...");
+    zelosOrbit.add(zelos);
+    console.log("Added Planet4 - Zelos to Zelos Orbit...");
+    biaOrbit.add(bia);
+    console.log("Added Planet5 - Bia to Bia Orbit...");
     //Add moon rotation object to planet2
-    plnt2.add(moonOrbit);
+    nike.add(moonOrbit);
     moonOrbit.add(moon);
-    console.log("Added MoonOrbit to Planet2 and Moon to MoonOrbit...");
+    console.log("Added Moon Orbit to Planet Nike and Moon to Moon Orbit...");
     // Add an AmbientLight to the scene
     ambientLight = new AmbientLight(0xffffff);
     scene.add(ambientLight);
@@ -142,11 +142,11 @@ function onResize() {
     renderer.setSize(window.innerWidth, window.innerHeight);
 }
 function addControl(controlObject) {
-    gui.add(controlObject, 'viewPlanet1');
-    gui.add(controlObject, 'viewPlanet2');
-    gui.add(controlObject, 'viewPlanet3');
-    gui.add(controlObject, 'viewPlanet4');
-    gui.add(controlObject, 'viewPlanet5');
+    gui.add(controlObject, 'viewStyx');
+    gui.add(controlObject, 'viewNike');
+    gui.add(controlObject, 'viewKratos');
+    gui.add(controlObject, 'viewZelos');
+    gui.add(controlObject, 'viewBia');
     gui.add(controlObject, 'viewSolarSystem');
     gui.add(controlObject, 'viewFarther');
 }
@@ -163,11 +163,11 @@ function gameLoop() {
     stats.update();
     // render using requestAnimationFrame
     moonOrbit.rotation.y += 0.05;
-    plnt1Orbit.rotation.y += 0.05;
-    plnt2Orbit.rotation.y += 0.02;
-    plnt3Orbit.rotation.y += 0.035;
-    plnt4Orbit.rotation.y += 0.015;
-    plnt5Orbit.rotation.y += 0.01;
+    styxOrbit.rotation.y += 0.05;
+    nikeOrbit.rotation.y += 0.02;
+    kratosOrbit.rotation.y += 0.035;
+    zelosOrbit.rotation.y += 0.015;
+    biaOrbit.rotation.y += 0.01;
     requestAnimationFrame(gameLoop);
     // render the scene
     renderer.render(scene, camera);
