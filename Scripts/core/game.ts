@@ -11,7 +11,7 @@ Program Description:   With Three.js, JavaScript, and TypeScript, create a web a
                          >> focus on a planet.
                          >> focus on the solar system.
 Revision History:      https://github.com/villare025/COMP392-Assignment2/commits/master
-Last Modification:     Added Program Header
+Last Modification:     Fix Kratos Orbit Mistype
 */
 
 // THREEJS Aliases
@@ -166,7 +166,7 @@ function init() {
     console.log("Added Planet1 - Styx to Styx Orbit");
     nikeOrbit.add(nike);
     console.log("Added Planet2 - Nike to Nike Orbit");
-    kratos.add(kratos);
+    kratosOrbit.add(kratos);
     console.log("Added Planet3 - Kratos to Kratos Orbit");
     zelosOrbit.add(zelos);
     console.log("Added Planet4 - Zelos to Zelos Orbit");
