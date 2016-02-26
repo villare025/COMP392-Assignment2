@@ -14,6 +14,16 @@ var objects;
             camera.fov = 75 * 0.1;
             camera.updateProjectionMatrix();
         };
+        //Switch camera to view system
+        Control.prototype.viewSolarSystem = function () {
+            sun.add(camera);
+            camera.position.x = -1100;
+            camera.position.y = 1000;
+            camera.position.z = 1100;
+            camera.lookAt(new Vector3(0, 0, 0));
+            camera.fov = 45;
+            camera.updateProjectionMatrix();
+        };
         return Control;
     }());
     objects.Control = Control;

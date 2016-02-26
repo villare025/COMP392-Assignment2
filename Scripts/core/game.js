@@ -143,6 +143,7 @@ function onResize() {
 }
 function addControl(controlObject) {
     gui.add(controlObject, 'viewPlanet2');
+    gui.add(controlObject, 'viewSolarSystem');
 }
 function addStatsObject() {
     stats = new Stats();
