@@ -91,35 +91,35 @@ function init() {
     plnt1 = new gameObject(
         new SphereGeometry(20, 100, 100),
         new LambertMaterial({ color: 0x66FFCC }),
-        100, 100, 100);
+        100, 100, 200);
     plnt1.name = "First planet";
     
     // add planet2    
     plnt2 = new gameObject(
         new SphereGeometry(45, 100, 100),
         new LambertMaterial({ color: 0xCC33CC }),
-        200, 200, 200);
+        200, 100, 200);
     plnt2.name = "Second planet";
     
     // add planet3    
     plnt3 = new gameObject(
         new SphereGeometry(32, 100, 100),
         new LambertMaterial({ color: 0xFFCC33 }),
-        300, 300, 300);
+        300, 100, 200);
     plnt3.name = "Third planet";
     
     // add planet4    
     plnt4 = new gameObject(
         new SphereGeometry(60, 100, 100),
         new LambertMaterial({ color: 0xFF99CC }),
-        400, 400, 400);
+        400, 100, 200);
     plnt4.name = "Fourth planet";
     
     // add planet5    
     plnt5 = new gameObject(
         new SphereGeometry(75, 100, 100),
         new LambertMaterial({ color: 0x99CC33 }),
-        500, 500, 500);
+        500, 100, 200);
     plnt5.name = "Fifth planet";
     
     //Create moon
@@ -209,11 +209,11 @@ function gameLoop(): void {
     stats.update();
     // render using requestAnimationFrame
     moonOrbit.rotation.y += 0.05;
-    plnt1Orbit.rotation.y += 0.03;
-    plnt2Orbit.rotation.y += 0.025;
-    plnt3Orbit.rotation.y += 0.05;
+    plnt1Orbit.rotation.y += 0.05;
+    plnt2Orbit.rotation.y += 0.045;
+    plnt3Orbit.rotation.y += 0.035;
     plnt4Orbit.rotation.y += 0.015;
-    plnt5Orbit.rotation.y += 0.02;    
+    plnt5Orbit.rotation.y += 0.01;    
     requestAnimationFrame(gameLoop);
 	
     // render the scene
