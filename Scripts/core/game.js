@@ -41,18 +41,24 @@ var control;
 var gui;
 var stats;
 var step = 0;
-// Solar System Game Objects
+// Create Solar System Game Objects
+// Sun Objects
 var sunLight;
 var sun;
 var sunGeometry;
 var sunMaterial;
+// Moon Objects
 var praxidice;
+// Planet Objects
 var styx;
 var nike;
 var kratos;
 var zelos;
 var bia;
+// Empty Game Objects for Orbits
+// Moon Orbits
 var praxidiceOrbit = new Object3D();
+// Planet Orbits
 var styxOrbit = new Object3D();
 var nikeOrbit = new Object3D();
 var kratosOrbit = new Object3D();
@@ -61,62 +67,67 @@ var biaOrbit = new Object3D();
 function init() {
     // Instantiate a new Scene object
     scene = new Scene();
-    setupRenderer(); // setup the default renderer
-    setupCamera(); // setup the camera
-    // add an axis helper to the scene
+    // Setup the default renderer
+    setupRenderer();
+    // Setup the Camera
+    setupCamera();
+    // Add an Axis Helper to the Scene
     axes = new AxisHelper(500);
     scene.add(axes);
-    console.log("Added Axis Helper to scene...");
-    // add sun
+    console.log("Added Axis Helper to Scene");
+    ////////////////////////////////////////////////////////
+    ////        Start Building the Solar System         ////
+    ////////////////////////////////////////////////////////
+    // Add the Life Giver - Sun
     sunGeometry = new SphereGeometry(100, 100, 100);
     sunMaterial = new LambertMaterial({ color: 0xFF0000 });
     sun = new Mesh(sunGeometry, sunMaterial);
     scene.add(sun);
-    console.log("Added Sun to scene...");
-    // add planet1
+    console.log("Added Sun to Scene");
+    // Add Planet 1 - Styx (Hate)
     styx = new gameObject(new SphereGeometry(20, 100, 100), new LambertMaterial({ color: 0x66FFCC }), 100, 100, 200);
     styx.name = "Styx";
-    // add planet2    
+    // Add Planet 2 - Nike (Victory)    
     nike = new gameObject(new SphereGeometry(45, 100, 100), new LambertMaterial({ color: 0xCC33CC }), 200, 100, 200);
     nike.name = "Nike";
-    // add planet3    
+    // Add Planet 3 - Kratos (Strength)
     kratos = new gameObject(new SphereGeometry(32, 100, 100), new LambertMaterial({ color: 0xFFCC33 }), 300, 100, 200);
     kratos.name = "Kratos";
-    // add planet4    
+    // Add Planet 4 - Zelos (Rivalry)    
     zelos = new gameObject(new SphereGeometry(60, 100, 100), new LambertMaterial({ color: 0xFF99CC }), 400, 100, 200);
     zelos.name = "Zelos";
-    // add planet5    
+    // Add Planet 5 - Bia (Force) 
     bia = new gameObject(new SphereGeometry(75, 100, 100), new LambertMaterial({ color: 0x99CC33 }), 500, 100, 200);
     bia.name = "Bia";
-    //Create moon
+    // Add Moon for Nike - Praxidice (Exacting Justice)
     praxidice = new gameObject(new SphereGeometry(8, 100, 100), new LambertMaterial({ color: 0x555E43 }), 50, 25, 25);
     praxidice.name = "Praxidice";
-    // Add orbits to sun 
+    // Add Orbits to Sun 
     sun.add(styxOrbit);
     sun.add(nikeOrbit);
     sun.add(kratosOrbit);
     sun.add(zelosOrbit);
     sun.add(biaOrbit);
-    //Add planets to their own orbits
+    // Add Planets to their Own Orbits
     styxOrbit.add(styx);
-    console.log("Added Planet1 - Styx to Styx Orbit...");
+    console.log("Added Planet1 - Styx to Styx Orbit");
     nikeOrbit.add(nike);
-    console.log("Added Planet2 - Nike to Nike Orbit...");
+    console.log("Added Planet2 - Nike to Nike Orbit");
     kratos.add(kratos);
-    console.log("Added Planet3 - Kratos to Kratos Orbit...");
+    console.log("Added Planet3 - Kratos to Kratos Orbit");
     zelosOrbit.add(zelos);
-    console.log("Added Planet4 - Zelos to Zelos Orbit...");
+    console.log("Added Planet4 - Zelos to Zelos Orbit");
     biaOrbit.add(bia);
-    console.log("Added Planet5 - Bia to Bia Orbit...");
-    //Add moon rotation object to planet2
+    console.log("Added Planet5 - Bia to Bia Orbit");
+    // Add Moon Praxidice Orbit to Planet Nike
     nike.add(praxidiceOrbit);
     praxidiceOrbit.add(praxidice);
-    console.log("Added Praxidice Orbit to Planet Nike and Moon Praxidice to Praxidice Orbit...");
-    // Add an AmbientLight to the scene
+    console.log("Added Praxidice Orbit to Planet Nike and Moon Praxidice to Praxidice Orbit");
+    // Add an AmbientLight to Scene
     ambientLight = new AmbientLight(0xffffff);
     scene.add(ambientLight);
     console.log("Added an Ambient Light to Scene");
-    //Add a PointLight to the scene as sun's light)
+    // Add a PointLight to Scene as Sun's light)
     sunLight = new PointLight(0xffffff);
     sunLight.position.set(0, 0, 0);
     sunLight.castShadow = true;
@@ -124,23 +135,28 @@ function init() {
     sunLight.shadowMapHeight = 2048;
     sunLight.shadowMapWidth = 2048;
     scene.add(sunLight);
-    console.log("Added a sunLight to the scene");
-    // add controls
+    console.log("Added Sun Light to Scene");
+    ////////////////////////////////////////////////////////
+    ////         End Building the Solar System          ////
+    ////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////
+    //// Start Building Solar System's Overseer Control ////
+    ////////////////////////////////////////////////////////
+    // Add Scene Controls
     gui = new GUI();
     control = new Control();
     addControl(control);
-    // Add framerate stats
+    // Add Frame Rate Stats
     addStatsObject();
-    console.log("Added Stats to scene...");
+    console.log("Added Stats to Scene");
     document.body.appendChild(renderer.domElement);
-    gameLoop(); // render the scene	
+    gameLoop(); // Render the Scene	
     window.addEventListener('resize', onResize, false);
+    ////////////////////////////////////////////////////////
+    ////  End Building Solar System's Overseer Control  ////
+    ////////////////////////////////////////////////////////
 }
-function onResize() {
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-}
+// Setup GUI Controls (for the Overseer) 
 function addControl(controlObject) {
     gui.add(controlObject, 'viewStyx');
     gui.add(controlObject, 'viewNike');
@@ -150,6 +166,22 @@ function addControl(controlObject) {
     gui.add(controlObject, 'viewSolarSystem');
     gui.add(controlObject, 'viewFarther');
 }
+// Setup Main Game Loop
+function gameLoop() {
+    stats.update();
+    // Define Orbits Y-Rotation Speed 
+    praxidiceOrbit.rotation.y += 0.05;
+    styxOrbit.rotation.y += 0.05;
+    nikeOrbit.rotation.y += 0.02;
+    kratosOrbit.rotation.y += 0.035;
+    zelosOrbit.rotation.y += 0.015;
+    biaOrbit.rotation.y += 0.01;
+    // Render using RequestAnimationFrame
+    requestAnimationFrame(gameLoop);
+    // Render the Scene
+    renderer.render(scene, camera);
+}
+// Setup Statistics
 function addStatsObject() {
     stats = new Stats();
     stats.setMode(0);
@@ -158,36 +190,28 @@ function addStatsObject() {
     stats.domElement.style.top = '0px';
     document.body.appendChild(stats.domElement);
 }
-// Setup main game loop
-function gameLoop() {
-    stats.update();
-    // render using requestAnimationFrame
-    praxidiceOrbit.rotation.y += 0.05;
-    styxOrbit.rotation.y += 0.05;
-    nikeOrbit.rotation.y += 0.02;
-    kratosOrbit.rotation.y += 0.035;
-    zelosOrbit.rotation.y += 0.015;
-    biaOrbit.rotation.y += 0.01;
-    requestAnimationFrame(gameLoop);
-    // render the scene
-    renderer.render(scene, camera);
+// Set Aspect Ratio Based on Window Size
+function onResize() {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
 }
-// Setup default renderer
+// Setup Default Renderer
 function setupRenderer() {
     renderer = new Renderer();
     renderer.setClearColor(0x131313, 1.0);
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.shadowMap.enabled = true;
-    console.log("Finished setting up Renderer...");
+    console.log("Finished setting up Renderer");
 }
-// Setup main camera for the scene
+// Setup Main Camera for the Scene
 function setupCamera() {
     camera = new PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 5000);
     camera.position.x = -1100;
     camera.position.y = 1000;
     camera.position.z = 1100;
     camera.lookAt(new Vector3(0, 0, 0));
-    console.log("Finished setting up Camera...");
+    console.log("Finished setting up Camera");
 }
 
 //# sourceMappingURL=game.js.map
