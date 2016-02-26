@@ -142,7 +142,11 @@ function onResize() {
     renderer.setSize(window.innerWidth, window.innerHeight);
 }
 function addControl(controlObject) {
+    gui.add(controlObject, 'viewPlanet1');
     gui.add(controlObject, 'viewPlanet2');
+    gui.add(controlObject, 'viewPlanet3');
+    gui.add(controlObject, 'viewPlanet4');
+    gui.add(controlObject, 'viewPlanet5');
     gui.add(controlObject, 'viewSolarSystem');
 }
 function addStatsObject() {
@@ -159,7 +163,7 @@ function gameLoop() {
     // render using requestAnimationFrame
     moonOrbit.rotation.y += 0.05;
     plnt1Orbit.rotation.y += 0.05;
-    plnt2Orbit.rotation.y += 0.045;
+    plnt2Orbit.rotation.y += 0.02;
     plnt3Orbit.rotation.y += 0.035;
     plnt4Orbit.rotation.y += 0.015;
     plnt5Orbit.rotation.y += 0.01;

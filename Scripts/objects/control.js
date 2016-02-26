@@ -8,9 +8,33 @@ var objects;
         //PUBLIC INSTANCE VARIABLES +++++++++++++++++++++++++++
         // CONSTRUCTOR ++++++++++++++++++++++++++++++++++++++++
         //PUBLIC METHODS +++++++++++++++++++++++++++++++++++++++
-        //Switch camera to view planet3
+        //Switch camera to view planet1
+        Control.prototype.viewPlanet1 = function () {
+            plnt1.add(camera);
+            camera.fov = 75 * 0.1;
+            camera.updateProjectionMatrix();
+        };
+        //Switch camera to view planet2
         Control.prototype.viewPlanet2 = function () {
             plnt2.add(camera);
+            camera.fov = 75 * 0.1;
+            camera.updateProjectionMatrix();
+        };
+        //Switch camera to view planet3
+        Control.prototype.viewPlanet3 = function () {
+            plnt3.add(camera);
+            camera.fov = 75 * 0.1;
+            camera.updateProjectionMatrix();
+        };
+        //Switch camera to view planet4
+        Control.prototype.viewPlanet4 = function () {
+            plnt4.add(camera);
+            camera.fov = 75 * 0.1;
+            camera.updateProjectionMatrix();
+        };
+        //Switch camera to view planet5
+        Control.prototype.viewPlanet5 = function () {
+            plnt5.add(camera);
             camera.fov = 75 * 0.1;
             camera.updateProjectionMatrix();
         };
