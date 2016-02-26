@@ -51,6 +51,12 @@ var plnt2;
 var plnt3;
 var plnt4;
 var plnt5;
+var moonOrbit = new Object3D();
+var plnt1Orbit = new Object3D();
+var plnt2Orbit = new Object3D();
+var plnt3Orbit = new Object3D();
+var plnt4Orbit = new Object3D();
+var plnt5Orbit = new Object3D();
 function init() {
     // Instantiate a new Scene object
     scene = new Scene();
@@ -94,6 +100,12 @@ function init() {
     //Create moon
     moon = new gameObject(new SphereGeometry(8, 100, 100), new LambertMaterial({ color: 0x555E43 }), 50, 25, 25);
     moon.name = "moon";
+    // Add orbits to sun 
+    sun.add(plnt1Orbit);
+    sun.add(plnt2Orbit);
+    sun.add(plnt3Orbit);
+    sun.add(plnt4Orbit);
+    sun.add(plnt5Orbit);
     // add controls
     gui = new GUI();
     control = new Control();
