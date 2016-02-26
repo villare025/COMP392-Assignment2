@@ -49,6 +49,7 @@ var plnt1;
 var plnt2;
 var plnt3;
 var plnt4;
+var plnt5;
 function init() {
     // Instantiate a new Scene object
     scene = new Scene();
@@ -80,10 +81,15 @@ function init() {
     scene.add(plnt3);
     console.log("Added P3 to scene...");
     // add planet4    
-    plnt4 = new gameObject(new SphereGeometry(60, 100, 100), new LambertMaterial({ color: 0xFFCC33 }), 400, 400, 400);
+    plnt4 = new gameObject(new SphereGeometry(60, 100, 100), new LambertMaterial({ color: 0xFF99CC }), 400, 400, 400);
     plnt4.name = "Fourth planet";
     scene.add(plnt4);
     console.log("Added P4 to scene...");
+    // add planet5    
+    plnt5 = new gameObject(new SphereGeometry(75, 100, 100), new LambertMaterial({ color: 0x99CC33 }), 500, 500, 500);
+    plnt5.name = "Fifth planet";
+    scene.add(plnt5);
+    console.log("Added P5 to scene...");
     // add controls
     gui = new GUI();
     control = new Control();
