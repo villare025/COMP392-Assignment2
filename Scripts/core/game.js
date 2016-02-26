@@ -1,5 +1,17 @@
 /// <reference path="_reference.ts"/>
 // MAIN GAME FILE
+/*
+Author:                Elaine Mae Villarino (villare025)
+Last Modified By:      Elaine Mae Villarino (villare025)
+Last Modified Date:    Friday, February 26th, 2016
+Program Description:   With Three.js, JavaScript, and TypeScript, create a web application that displays a Solar System.
+                       The Solar System Objects will be made from Sphere Meshes.
+                       GUI Controls should allow the user/overseer to:
+                         >> focus on a planet.
+                         >> focus on the solar system.
+Revision History:      https://github.com/villare025/COMP392-Assignment2/commits/master
+Last Modification:     Added Program Header
+*/
 // THREEJS Aliases
 var Scene = THREE.Scene;
 var Renderer = THREE.WebGLRenderer;

@@ -1,4 +1,14 @@
 /// <reference path="../../typings/tsd.d.ts"/>
+/*
+Author:                Elaine Mae Villarino (villare025)
+Last Modified By:      Elaine Mae Villarino (villare025)
+Last Modified Date:    Friday, February 26th, 2016
+Program Description:   Control files contain the classes that will allow GUI Controls (as per user/overseer's inputs) to:
+                         >> focus on a planet.
+                         >> focus on the solar system.
+Revision History:      https://github.com/villare025/COMP392-Assignment2/commits/master
+Last Modification:     Added Program Header
+*/
 var objects;
 (function (objects) {
     // CONTROL CLASS ++++++++++++++++++++++++++++++++++++++++++
