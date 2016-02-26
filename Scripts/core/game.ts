@@ -51,14 +51,14 @@ var sunLight: PointLight;
 var sun: Mesh;
 var sunGeometry: SphereGeometry;
 var sunMaterial: LambertMaterial;
-var moon: Mesh;
+var praxidice: Mesh;
 var styx: Mesh;
 var nike: Mesh;
 var kratos: Mesh;
 var zelos: Mesh;
 var bia: Mesh;
 
-var moonOrbit = new Object3D();
+var praxidiceOrbit = new Object3D();
 var styxOrbit = new Object3D();
 var nikeOrbit = new Object3D();
 var kratosOrbit = new Object3D();
@@ -123,11 +123,11 @@ function init() {
     bia.name = "Bia";
     
     //Create moon
-    moon = new gameObject(
+    praxidice = new gameObject(
         new SphereGeometry(8, 100, 100),
         new LambertMaterial({ color: 0x555E43 }),
         50, 25, 25);
-    moon.name = "moon";
+    praxidice.name = "Praxidice";
     
     // Add orbits to sun 
     sun.add(styxOrbit);
@@ -149,9 +149,9 @@ function init() {
     console.log("Added Planet5 - Bia to Bia Orbit...");
     
     //Add moon rotation object to planet2
-    nike.add(moonOrbit);
-    moonOrbit.add(moon);
-    console.log("Added Moon Orbit to Planet Nike and Moon to Moon Orbit...");
+    nike.add(praxidiceOrbit);
+    praxidiceOrbit.add(praxidice);
+    console.log("Added Praxidice Orbit to Planet Nike and Moon Praxidice to Praxidice Orbit...");
     
     // Add an AmbientLight to the scene
     ambientLight = new AmbientLight(0xffffff);
@@ -213,7 +213,7 @@ function addStatsObject() {
 function gameLoop(): void {
     stats.update();
     // render using requestAnimationFrame
-    moonOrbit.rotation.y += 0.05;
+    praxidiceOrbit.rotation.y += 0.05;
     styxOrbit.rotation.y += 0.05;
     nikeOrbit.rotation.y += 0.02;
     kratosOrbit.rotation.y += 0.035;
