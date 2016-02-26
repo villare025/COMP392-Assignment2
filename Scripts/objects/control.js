@@ -5,6 +5,15 @@ var objects;
     var Control = (function () {
         function Control() {
         }
+        //PUBLIC INSTANCE VARIABLES +++++++++++++++++++++++++++
+        // CONSTRUCTOR ++++++++++++++++++++++++++++++++++++++++
+        //PUBLIC METHODS +++++++++++++++++++++++++++++++++++++++
+        //Switch camera to view planet3
+        Control.prototype.viewPlanet2 = function () {
+            plnt2.add(camera);
+            camera.fov = 75 * 0.1;
+            camera.updateProjectionMatrix();
+        };
         return Control;
     }());
     objects.Control = Control;

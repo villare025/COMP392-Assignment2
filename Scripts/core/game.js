@@ -142,6 +142,7 @@ function onResize() {
     renderer.setSize(window.innerWidth, window.innerHeight);
 }
 function addControl(controlObject) {
+    gui.add(controlObject, 'viewPlanet2');
 }
 function addStatsObject() {
     stats = new Stats();
