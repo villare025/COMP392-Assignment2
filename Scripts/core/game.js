@@ -26,7 +26,7 @@ var Vector3 = THREE.Vector3;
 var Face3 = THREE.Face3;
 var Point = objects.Point;
 var CScreen = config.Screen;
-//Custom Game Objects
+// Custom Game Objects
 var gameObject = objects.gameObject;
 var scene;
 var renderer;
@@ -41,6 +41,10 @@ var control;
 var gui;
 var stats;
 var step = 0;
+// Solar System Game Objects
+var sun;
+var sunGeometry;
+var sunMaterial;
 function init() {
     // Instantiate a new Scene object
     scene = new Scene();
@@ -50,6 +54,12 @@ function init() {
     axes = new AxisHelper(500);
     scene.add(axes);
     console.log("Added Axis Helper to scene...");
+    // add sun
+    sunGeometry = new SphereGeometry(100, 100, 100);
+    sunMaterial = new LambertMaterial({ color: 0xFF0000 });
+    sun = new Mesh(sunGeometry, sunMaterial);
+    scene.add(sun);
+    console.log("Added Sun to scene...");
     // add controls
     gui = new GUI();
     control = new Control();
@@ -95,9 +105,9 @@ function setupRenderer() {
 // Setup main camera for the scene
 function setupCamera() {
     camera = new PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 5000);
-    camera.position.x = 0.6;
-    camera.position.y = 16;
-    camera.position.z = -20.5;
+    camera.position.x = -1100;
+    camera.position.y = 1000;
+    camera.position.z = 1100;
     camera.lookAt(new Vector3(0, 0, 0));
     console.log("Finished setting up Camera...");
 }
