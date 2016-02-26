@@ -107,6 +107,10 @@ function init() {
     console.log("Added P4 to P4Orbit...");
     plnt5Orbit.add(plnt5);
     console.log("Added P5 to P5Orbit...");
+    //Add moon rotation object to planet2
+    plnt2.add(moonOrbit);
+    moonOrbit.add(moon);
+    console.log("Added MoonOrbit to Planet2 and Moon to MoonOrbit...");
     // add controls
     gui = new GUI();
     control = new Control();
