@@ -26,6 +26,7 @@ import Geometry = THREE.Geometry;
 import AxisHelper = THREE.AxisHelper;
 import LambertMaterial = THREE.MeshLambertMaterial;
 import MeshBasicMaterial = THREE.MeshBasicMaterial;
+import ImageUtils = THREE.ImageUtils;
 import Material = THREE.Material;
 import Mesh = THREE.Mesh;
 import Object3D = THREE.Object3D;
@@ -64,6 +65,9 @@ var sunLight: PointLight;
 var sun: Mesh;
 var sunGeometry: SphereGeometry;
 var sunMaterial: LambertMaterial;
+var sunOver: Mesh;
+var sunOverGeometry: SphereGeometry;
+var sunOverMaterial: LambertMaterial;
 // Moon Objects
 var praxidice: Mesh;
 // Planet Objects
@@ -104,39 +108,41 @@ function init() {
     ////////////////////////////////////////////////////////
     
     // Define the Textures
-    
-    
+    var sunBaseTexture = THREE.ImageUtils.loadTexture('Textures/sun.jpg');
+    var sunOverTexture = THREE.ImageUtils.loadTexture('Textures/cloudmap.jpg');
+
+    var styxBaseTexture = THREE.ImageUtils.loadTexture('Textures/planet-512.jpg');
+    var styxOverTexture = THREE.ImageUtils.loadTexture('Textures/cloudmap.jpg');
+
+    var nikeBaseTexture = THREE.ImageUtils.loadTexture('Textures/planet-512.jpg');
+    var nikeOverTexture = THREE.ImageUtils.loadTexture('Textures/cloudmap.jpg');
+
+    var kratosBaseTexture = THREE.ImageUtils.loadTexture('Textures/scarredplanet.jpg');
+    var kratosOverTexture = THREE.ImageUtils.loadTexture('Textures/cloudmap.jpg');
+
+    var zelosBaseTexture = THREE.ImageUtils.loadTexture('Textures/planet-512.jpg');
+    var zelosOverTexture = THREE.ImageUtils.loadTexture('Textures/cloudmap.jpg');
+
+    var biaBaseTexture = THREE.ImageUtils.loadTexture('Textures/planet-512.jpg');
+    var biaOverTexture = THREE.ImageUtils.loadTexture('Textures/cloudmap.jpg');
+
+    var praxidiceBaseTexture = THREE.ImageUtils.loadTexture('Textures/planet-512.jpg');
+       
+       
     // Add the Life Giver - Sun
-    sunGeometry = new SphereGeometry(100, 100, 100);
-    //sunMaterial = new LambertMaterial({ color: 0xFF0000 });
-    //Load the planet textures
-    var texture = THREE.ImageUtils.loadTexture("https://s3-us-west-2.amazonaws.com/s.cdpn.io/96252/planet-512.jpg");
-    var normalmap = THREE.ImageUtils.loadTexture("https://s3-us-west-2.amazonaws.com/s.cdpn.io/96252/normal-map-512.jpg");
-    var specmap = THREE.ImageUtils.loadTexture("https://s3-us-west-2.amazonaws.com/s.cdpn.io/96252/water-map-512.jpg");
-    var sunMaterial1 = new THREE.MeshPhongMaterial();
-    sunMaterial1.map = texture;
-    sunMaterial1.specularMap = texture;
-    sunMaterial1.specular = new THREE.Color(0xff0000);
-    sunMaterial1.shininess = 1;
-
-    sunMaterial1.normalMap = normalmap;
-    sunMaterial1.normalScale.set(-0.3, -0.3);
-    
-    sunMaterial1.map.wrapS = THREE.RepeatWrapping;
-    sunMaterial1.map.wrapT = THREE.RepeatWrapping;
-    sunMaterial1.normalMap.wrapS = THREE.RepeatWrapping;
-    sunMaterial1.normalMap.wrapT = THREE.RepeatWrapping;
-    sunMaterial1.specularMap.wrapS = THREE.RepeatWrapping;
-    sunMaterial1.specularMap.wrapT = THREE.RepeatWrapping;
-
-    sunMaterial1.map.repeat.set(2, 1);
-    sunMaterial1.normalMap.repeat.set(2, 1);
-    sunMaterial1.specularMap.repeat.set(2, 1);
-    sun = new Mesh(sunGeometry, sunMaterial1);
-
+    sunGeometry = new SphereGeometry(100, 200, 200);
+    sunMaterial = new LambertMaterial({ map: sunBaseTexture });
+    sun = new Mesh(sunGeometry, sunMaterial);
 
     scene.add(sun);
     console.log("Added Sun to Scene");
+    
+    // Second Layer of sun
+    sunOverGeometry = new SphereGeometry(101, 200, 200);
+    sunOverMaterial = new LambertMaterial({ transparent: true, opacity: 0.1, map: sunOverTexture});
+    sunOver = new Mesh(sunOverGeometry, sunOverMaterial);
+    sun.add(sunOver);
+    console.log("Added sun2 to the scene");
     
     // Add Planet 1 - Styx (Hate)
     
@@ -248,6 +254,7 @@ function init() {
 }
 // Setup GUI Controls (for the Overseer) 
 function addControl(controlObject: Control): void {
+    gui.add(controlObject, 'viewSun');
     gui.add(controlObject, 'viewStyx');
     gui.add(controlObject, 'viewNike');
     gui.add(controlObject, 'viewKratos');
@@ -260,6 +267,10 @@ function addControl(controlObject: Control): void {
 // Setup Main Game Loop
 function gameLoop(): void {
     stats.update();
+    // Define Over Layers Rotation Speed 
+    sunOver.rotation.x += 0.001
+    sunOver.rotation.z -= 0.001
+    sunOver.rotation.y += 0.005
     
     // Define Orbits Y-Rotation Speed 
     praxidiceOrbit.rotation.y += 0.05;

@@ -18,6 +18,12 @@ module objects {
         // CONSTRUCTOR ++++++++++++++++++++++++++++++++++++++++
 
         //PUBLIC METHODS +++++++++++++++++++++++++++++++++++++++
+        //Switch camera to view Sun 
+        public viewSun(): void {
+            sun.add(camera);
+            camera.fov = 75 * 0.1;
+            camera.updateProjectionMatrix();
+        }
         //Switch camera to view planet1 - Styx
         public viewStyx(): void {
             styx.add(camera);

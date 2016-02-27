@@ -18,6 +18,12 @@ var objects;
         //PUBLIC INSTANCE VARIABLES +++++++++++++++++++++++++++
         // CONSTRUCTOR ++++++++++++++++++++++++++++++++++++++++
         //PUBLIC METHODS +++++++++++++++++++++++++++++++++++++++
+        //Switch camera to view Sun 
+        Control.prototype.viewSun = function () {
+            sun.add(camera);
+            camera.fov = 75 * 0.1;
+            camera.updateProjectionMatrix();
+        };
         //Switch camera to view planet1 - Styx
         Control.prototype.viewStyx = function () {
             styx.add(camera);
