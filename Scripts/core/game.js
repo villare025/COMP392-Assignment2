@@ -67,10 +67,25 @@ var sunOverMaterial;
 var praxidice;
 // Planet Objects
 var styx;
+var styxOver;
+var styxOverGeometry;
+var styxOverMaterial;
 var nike;
+var nikeOver;
+var nikeOverGeometry;
+var nikeOverMaterial;
 var kratos;
+var kratosOver;
+var kratosOverGeometry;
+var kratosOverMaterial;
 var zelos;
+var zelosOver;
+var zelosOverGeometry;
+var zelosOverMaterial;
 var bia;
+var biaOver;
+var biaOverGeometry;
+var biaOverMaterial;
 // Empty Game Objects for Orbits
 // Moon Orbits
 var praxidiceOrbit = new Object3D();
@@ -114,29 +129,59 @@ function init() {
     sun = new Mesh(sunGeometry, sunMaterial);
     scene.add(sun);
     console.log("Added Sun to Scene");
-    // Second Layer of sun
+    // Add Sun Over Layer
     sunOverGeometry = new SphereGeometry(101, 200, 200);
     sunOverMaterial = new LambertMaterial({ transparent: true, opacity: 0.1, map: sunOverTexture });
     sunOver = new Mesh(sunOverGeometry, sunOverMaterial);
     sun.add(sunOver);
-    console.log("Added sun2 to the scene");
+    console.log("Added Sun Over Layer to Scene");
     // Add Planet 1 - Styx (Hate)
-    styx = new gameObject(new SphereGeometry(20, 100, 100), new LambertMaterial({ color: 0x66FFCC }), 100, 100, 200);
+    styx = new gameObject(new SphereGeometry(20, 100, 100), new LambertMaterial({ map: styxBaseTexture }), 100, 100, 200);
     styx.name = "Styx";
+    // Add Planet 1 - Styx Over Layer
+    styxOverGeometry = new SphereGeometry(21, 100, 100);
+    styxOverMaterial = new LambertMaterial({ transparent: true, opacity: 0.1, map: styxOverTexture });
+    styxOver = new Mesh(styxOverGeometry, styxOverMaterial);
+    styx.add(styxOver);
+    console.log("Added Styx Over Layer to Scene");
     // Add Planet 2 - Nike (Victory)    
-    nike = new gameObject(new SphereGeometry(45, 100, 100), new LambertMaterial({ color: 0xCC33CC }), 200, 100, 200);
+    nike = new gameObject(new SphereGeometry(45, 100, 100), new LambertMaterial({ map: nikeBaseTexture }), 200, 100, 200);
     nike.name = "Nike";
+    // Add Planet 2 - Nike Over Layer
+    nikeOverGeometry = new SphereGeometry(101, 200, 200);
+    nikeOverMaterial = new LambertMaterial({ transparent: true, opacity: 0.1, map: nikeOverTexture });
+    nikeOver = new Mesh(nikeOverGeometry, nikeOverMaterial);
+    nike.add(nikeOver);
+    console.log("Added Nike Over Layer to Scene");
     // Add Planet 3 - Kratos (Strength)
-    kratos = new gameObject(new SphereGeometry(32, 100, 100), new LambertMaterial({ color: 0xFFCC33 }), 300, 100, 200);
+    kratos = new gameObject(new SphereGeometry(32, 100, 100), new LambertMaterial({ map: kratosBaseTexture }), 300, 100, 200);
     kratos.name = "Kratos";
+    // Add Planet 3 - Kratos Over Layer
+    kratosOverGeometry = new SphereGeometry(33, 100, 100);
+    kratosOverMaterial = new LambertMaterial({ transparent: true, opacity: 0.1, map: kratosOverTexture });
+    kratosOver = new Mesh(kratosOverGeometry, kratosOverMaterial);
+    kratos.add(kratosOver);
+    console.log("Added Kratos Over Layer to Scene");
     // Add Planet 4 - Zelos (Rivalry)    
-    zelos = new gameObject(new SphereGeometry(60, 100, 100), new LambertMaterial({ color: 0xFF99CC }), 400, 100, 200);
+    zelos = new gameObject(new SphereGeometry(60, 100, 100), new LambertMaterial({ map: zelosBaseTexture }), 400, 100, 200);
     zelos.name = "Zelos";
+    // Add Planet 4 - Zelos Over Layer
+    zelosOverGeometry = new SphereGeometry(61, 100, 100);
+    zelosOverMaterial = new LambertMaterial({ transparent: true, opacity: 0.1, map: zelosOverTexture });
+    zelosOver = new Mesh(zelosOverGeometry, zelosOverMaterial);
+    zelos.add(zelosOver);
+    console.log("Added Zelos Over Layer to Scene");
     // Add Planet 5 - Bia (Force) 
-    bia = new gameObject(new SphereGeometry(75, 100, 100), new LambertMaterial({ color: 0x99CC33 }), 500, 100, 200);
+    bia = new gameObject(new SphereGeometry(75, 100, 100), new LambertMaterial({ map: biaBaseTexture }), 500, 100, 200);
     bia.name = "Bia";
+    // Add Planet 5 - Bia Over Layer
+    biaOverGeometry = new SphereGeometry(76, 100, 100);
+    biaOverMaterial = new LambertMaterial({ transparent: true, opacity: 0.1, map: biaOverTexture });
+    biaOver = new Mesh(biaOverGeometry, biaOverMaterial);
+    bia.add(biaOver);
+    console.log("Added Bia Over Layer to Scene");
     // Add Moon for Nike - Praxidice (Exacting Justice)
-    praxidice = new gameObject(new SphereGeometry(8, 100, 100), new LambertMaterial({ color: 0x555E43 }), 50, 25, 25);
+    praxidice = new gameObject(new SphereGeometry(8, 100, 100), new LambertMaterial({ map: praxidiceBaseTexture }), 50, 25, 25);
     praxidice.name = "Praxidice";
     // Add Orbits to Sun 
     sun.add(styxOrbit);
@@ -210,6 +255,21 @@ function gameLoop() {
     sunOver.rotation.x += 0.001;
     sunOver.rotation.z -= 0.001;
     sunOver.rotation.y += 0.005;
+    styxOver.rotation.x += 0.001;
+    styxOver.rotation.z -= 0.001;
+    styxOver.rotation.y += 0.005;
+    nikeOver.rotation.x += 0.001;
+    nikeOver.rotation.z -= 0.001;
+    nikeOver.rotation.y += 0.005;
+    kratosOver.rotation.x += 0.001;
+    kratosOver.rotation.z -= 0.001;
+    kratosOver.rotation.y += 0.005;
+    zelosOver.rotation.x += 0.001;
+    zelosOver.rotation.z -= 0.001;
+    zelosOver.rotation.y += 0.005;
+    biaOver.rotation.x += 0.001;
+    biaOver.rotation.z -= 0.001;
+    biaOver.rotation.y += 0.005;
     // Define Orbits Y-Rotation Speed 
     praxidiceOrbit.rotation.y += 0.05;
     styxOrbit.rotation.y += 0.05;
