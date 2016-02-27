@@ -103,10 +103,37 @@ function init() {
     ////        Start Building the Solar System         ////
     ////////////////////////////////////////////////////////
     
+    // Define the Textures
+    
+    
     // Add the Life Giver - Sun
     sunGeometry = new SphereGeometry(100, 100, 100);
-    sunMaterial = new LambertMaterial({ color: 0xFF0000 });
-    sun = new Mesh(sunGeometry, sunMaterial);
+    //sunMaterial = new LambertMaterial({ color: 0xFF0000 });
+    //Load the planet textures
+    var texture = THREE.ImageUtils.loadTexture("https://s3-us-west-2.amazonaws.com/s.cdpn.io/96252/planet-512.jpg");
+    var normalmap = THREE.ImageUtils.loadTexture("https://s3-us-west-2.amazonaws.com/s.cdpn.io/96252/normal-map-512.jpg");
+    var specmap = THREE.ImageUtils.loadTexture("https://s3-us-west-2.amazonaws.com/s.cdpn.io/96252/water-map-512.jpg");
+    var sunMaterial1 = new THREE.MeshPhongMaterial();
+    sunMaterial1.map = texture;
+    sunMaterial1.specularMap = texture;
+    sunMaterial1.specular = new THREE.Color(0xff0000);
+    sunMaterial1.shininess = 1;
+
+    sunMaterial1.normalMap = normalmap;
+    sunMaterial1.normalScale.set(-0.3, -0.3);
+    
+    sunMaterial1.map.wrapS = THREE.RepeatWrapping;
+    sunMaterial1.map.wrapT = THREE.RepeatWrapping;
+    sunMaterial1.normalMap.wrapS = THREE.RepeatWrapping;
+    sunMaterial1.normalMap.wrapT = THREE.RepeatWrapping;
+    sunMaterial1.specularMap.wrapS = THREE.RepeatWrapping;
+    sunMaterial1.specularMap.wrapT = THREE.RepeatWrapping;
+
+    sunMaterial1.map.repeat.set(2, 1);
+    sunMaterial1.normalMap.repeat.set(2, 1);
+    sunMaterial1.specularMap.repeat.set(2, 1);
+    sun = new Mesh(sunGeometry, sunMaterial1);
+
 
     scene.add(sun);
     console.log("Added Sun to Scene");
