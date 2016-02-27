@@ -8,7 +8,7 @@ Program Description:   Control files contain the classes that will allow GUI Con
                          >> focus on a planet.
                          >> focus on the solar system.
 Revision History:      https://github.com/villare025/COMP392-Assignment2/commits/master
-Last Modification:     Added Program Header
+Last Modification:     Added View Alala
 */
 
 module objects {
@@ -51,6 +51,12 @@ module objects {
         //Switch camera to view planet5 - Bia
         public viewBia(): void {
             bia.add(camera);
+            camera.fov = 75 * 0.1;
+            camera.updateProjectionMatrix();
+        }
+        //Switch camera to view planet6 - Alala
+        public viewAlala(): void {
+            alala.add(camera);
             camera.fov = 75 * 0.1;
             camera.updateProjectionMatrix();
         }
