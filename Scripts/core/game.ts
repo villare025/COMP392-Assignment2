@@ -109,24 +109,24 @@ function init() {
     
     // Define the Textures
     var sunBaseTexture = THREE.ImageUtils.loadTexture('Textures/sun.jpg');
-    var sunOverTexture = THREE.ImageUtils.loadTexture('Textures/cloudmap.jpg');
+    var sunOverTexture = THREE.ImageUtils.loadTexture('Textures/cloudmap1.jpg');
 
-    var styxBaseTexture = THREE.ImageUtils.loadTexture('Textures/planet-512.jpg');
-    var styxOverTexture = THREE.ImageUtils.loadTexture('Textures/cloudmap.jpg');
+    var styxBaseTexture = THREE.ImageUtils.loadTexture('Textures/planet_Bog1200.png');
+    var styxOverTexture = THREE.ImageUtils.loadTexture('Textures/cloudmap2.jpg');
 
-    var nikeBaseTexture = THREE.ImageUtils.loadTexture('Textures/planet-512.jpg');
-    var nikeOverTexture = THREE.ImageUtils.loadTexture('Textures/cloudmap.jpg');
+    var nikeBaseTexture = THREE.ImageUtils.loadTexture('Textures/pic_new1.jpg');
+    var nikeOverTexture = THREE.ImageUtils.loadTexture('Textures/cloudmap3.jpg');
 
     var kratosBaseTexture = THREE.ImageUtils.loadTexture('Textures/scarredplanet.jpg');
-    var kratosOverTexture = THREE.ImageUtils.loadTexture('Textures/cloudmap.jpg');
+    var kratosOverTexture = THREE.ImageUtils.loadTexture('Textures/cloudmap4.jpg');
 
-    var zelosBaseTexture = THREE.ImageUtils.loadTexture('Textures/planet-512.jpg');
-    var zelosOverTexture = THREE.ImageUtils.loadTexture('Textures/cloudmap.jpg');
+    var zelosBaseTexture = THREE.ImageUtils.loadTexture('Textures/ice_planet.png');
+    var zelosOverTexture = THREE.ImageUtils.loadTexture('Textures/cloudmap5.jpg');
 
     var biaBaseTexture = THREE.ImageUtils.loadTexture('Textures/planet-512.jpg');
-    var biaOverTexture = THREE.ImageUtils.loadTexture('Textures/cloudmap.jpg');
+    var biaOverTexture = THREE.ImageUtils.loadTexture('Textures/cloudmap6.jpg');
 
-    var praxidiceBaseTexture = THREE.ImageUtils.loadTexture('Textures/planet-512.jpg');
+    var praxidiceBaseTexture = THREE.ImageUtils.loadTexture('Textures/moon.jpg');
        
        
     // Add the Life Giver - Sun
